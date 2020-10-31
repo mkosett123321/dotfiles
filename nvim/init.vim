@@ -1,6 +1,7 @@
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
 
@@ -22,6 +23,10 @@ Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 
 " Initialize plugin system
 call plug#end()
+
+
+
+let b:coc_pairs_disabled = ['<']
 
 inoremap jk <ESC>
 nmap <C-n> :NERDTreeToggle<CR>
@@ -80,14 +85,13 @@ set shiftwidth=2
 " always uses spaces instead of tab characters
 set expandtab
 
-colorscheme gruvbox
+colorscheme blue
 
 
 
 " coc config
 let g:coc_global_extensions = [
   \ 'coc-snippets',
-  \ 'coc-pairs',
   \ 'coc-tsserver',
   \ 'coc-eslint', 
   \ 'coc-prettier', 
@@ -95,7 +99,7 @@ let g:coc_global_extensions = [
   \ ]
 
 "disable autoclose for <
-let b:coc_pairs_disabled = ['<']
+"let b:coc_pairs_disabled = ['<']
 
 " from readme
 " if hidden is not set, TextEdit might fail.
@@ -189,7 +193,6 @@ nmap <silent> <C-d> <Plug>(coc-range-select)
 xmap <silent> <C-d> <Plug>(coc-range-select)
 
 " Use `:Format` to format current buffer
-command! -nargs=0 Format :call CocAction('format')
 
 " Use `:Fold` to fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
